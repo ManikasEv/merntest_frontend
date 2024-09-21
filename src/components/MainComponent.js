@@ -7,7 +7,7 @@ function MainComponent() {
   const [quantity, setQuantity] = useState('');    // Quantity of the product
   const [price, setPrice] = useState('');          // Price of the product
   const [img, setImg] = useState('');              // Image URL of the product (optional)
-
+  const apiUrl = 'https://mern-backend-opal.vercel.app/api/products';
   // Function to handle the update request
   const handleUpdateProduct = async () => {
     const updatedProduct = {
@@ -25,7 +25,7 @@ function MainComponent() {
 
     console.log(productId);
     try {
-      const response = await fetch(`mern-backend-opal.vercel.app/api/products/${productId}`, {
+      const response = await fetch(`${apiUrl}/${productId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
